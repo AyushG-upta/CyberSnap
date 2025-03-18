@@ -21,12 +21,19 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" placeholder="Enter password" required>
         </div>
+        <div class="input-group">
+          <label for="userRoleSelect">User Role:</label>
+          <select id="userRoleSelect" required>
+            <option value="examiner" selected>Examiner</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
         <button type="submit" class="login-btn">Login</button>
       </form>
     </div>
   </section>
 
-  <!-- Dashboard Section -->
+  <!-- Examiner Dashboard Section -->
   <section id="dashboardSection">
     <nav class="sidebar">
       <h1>CyberSnap</h1>
@@ -41,7 +48,7 @@
     </nav>
     <div class="dashboard-content container">
       <header>
-        <h2>Dashboard</h2>
+        <h2>Examiner Dashboard</h2>
         <p>Overview of active investigations and system status</p>
       </header>
       <section class="cards">
@@ -61,7 +68,47 @@
     </div>
   </section>
 
-  <!-- Investigation Section -->
+  <!-- Admin Panel Section -->
+  <section id="adminSection">
+    <nav class="sidebar">
+      <h1>Admin Panel</h1>
+      <ul>
+        <li><a href="#" id="navAdminDashboard" class="active">Dashboard</a></li>
+        <li><a href="#" id="navConfigureTool">Configure Tool</a></li>
+        <li><a href="#" id="navManageAccess">Manage Access</a></li>
+        <li><a href="#" id="navUpdateSettings">Update Settings</a></li>
+      </ul>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+    <div class="dashboard-content container">
+      <header>
+        <h2>Admin Dashboard</h2>
+        <p>Manage configurations and user access</p>
+      </header>
+      <section class="admin-cards">
+        <div class="card">
+          <h3>Tool Configuration</h3>
+          <p>Update tool settings and API keys.</p>
+          <button class="action-btn" onclick="showAdminForm('configureTool')">Configure</button>
+        </div>
+        <div class="card">
+          <h3>User Access</h3>
+          <p>Manage examiner accounts and access rights.</p>
+          <button class="action-btn" onclick="showAdminForm('manageAccess')">Manage</button>
+        </div>
+        <div class="card">
+          <h3>System Settings</h3>
+          <p>Update system parameters and logging levels.</p>
+          <button class="action-btn" onclick="showAdminForm('updateSettings')">Update</button>
+        </div>
+      </section>
+      <section id="adminFormSection" style="display:none;">
+        <!-- This section will load the corresponding admin form -->
+      </section>
+    </div>
+  </section>
+
+  <!-- Investigation Section (Examiner) -->
   <section id="investigationSection">
     <div class="container">
       <header>
@@ -89,7 +136,8 @@
             <label for="platformPassword">Platform Password:</label>
             <input type="password" id="platformPassword" placeholder="Enter platform password" required>
           </div>
-          <button type="button" class="start-btn" onclick="initiateInvestigation()">Proceed</button>
+          <!-- Updated Proceed button -->
+          <button type="button" class="action-btn" onclick="initiateInvestigation()">Proceed</button>
         </form>
       </div>
       <!-- Investigation Simulation (Hidden by Default) -->
