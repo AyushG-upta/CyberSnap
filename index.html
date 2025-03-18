@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberSnap - Social Media Feed Parsing Tool</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Login Section -->
+  <section id="loginSection">
+    <div class="login-box">
+      <h2>CyberSnap Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter username" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section id="dashboardSection">
+    <nav class="sidebar">
+      <h1>CyberSnap</h1>
+      <ul>
+        <li><a href="#" id="navDashboard" class="active">Dashboard</a></li>
+        <li><a href="#" id="navInvestigation">New Investigation</a></li>
+        <li><a href="#" id="navReport">Reports</a></li>
+        <li><a href="#" id="navSettings">Settings</a></li>
+        <li><a href="#" id="navHelp">Help</a></li>
+      </ul>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+    <div class="dashboard-content container">
+      <header>
+        <h2>Dashboard</h2>
+        <p>Overview of active investigations and system status</p>
+      </header>
+      <section class="cards">
+        <div class="card">
+          <h3>Active Investigations</h3>
+          <p id="activeCount">0 ongoing investigations</p>
+        </div>
+        <div class="card">
+          <h3>Recent Reports</h3>
+          <p id="reportCount">No new reports</p>
+        </div>
+        <div class="card">
+          <h3>System Alerts</h3>
+          <p>No alerts</p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- Investigation Section -->
+  <section id="investigationSection">
+    <div class="container">
+      <header>
+        <h2>New Investigation</h2>
+      </header>
+      <!-- Social Media Platform Selection Form -->
+      <div class="platform-selection">
+        <h3>Select Social Media Platform</h3>
+        <form id="platformForm">
+          <div class="input-group">
+            <label for="platformSelect">Platform:</label>
+            <select id="platformSelect" required>
+              <option value="">--Select Platform--</option>
+              <option value="facebook">Facebook</option>
+              <option value="instagram">Instagram</option>
+              <option value="whatsapp">WhatsApp</option>
+              <option value="twitter">Twitter</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="platformUsername">Platform Username:</label>
+            <input type="text" id="platformUsername" placeholder="Enter platform username" required>
+          </div>
+          <div class="input-group">
+            <label for="platformPassword">Platform Password:</label>
+            <input type="password" id="platformPassword" placeholder="Enter platform password" required>
+          </div>
+          <button type="button" class="start-btn" onclick="initiateInvestigation()">Proceed</button>
+        </form>
+      </div>
+      <!-- Investigation Simulation (Hidden by Default) -->
+      <div id="investigationSim" style="display: none;">
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+        <div class="investigation-data">
+          <div class="data-pane">
+            <h3>Social Media Data</h3>
+            <p id="dataPreview">Data will appear here...</p>
+          </div>
+          <div class="preview-pane">
+            <h3>Screenshot Previews</h3>
+            <img src="https://via.placeholder.com/300x200.png?text=Screenshot" alt="Screenshot Preview" style="max-width:100%;">
+          </div>
+        </div>
+        <div class="investigation-controls">
+          <button class="pause-btn" onclick="pauseInvestigation()">Pause</button>
+          <button class="cancel-btn" onclick="cancelInvestigation()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Report Section -->
+  <section id="reportSection">
+    <div class="container">
+      <header>
+        <h2>Investigation Report</h2>
+      </header>
+      <div class="report-content">
+        <h3>Final Report</h3>
+        <p id="reportContent">Report details will be displayed here...</p>
+      </div>
+      <br>
+      <button class="export-btn" onclick="exportReport()">Export/Print Report</button>
+    </div>
+  </section>
+
+  <!-- Link to external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
