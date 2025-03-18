@@ -227,6 +227,9 @@ header h2 {
 #adminSection {
   display: none;
 }
+#adminSection .logout-btn {
+  margin-top: 20px; 
+}
 .admin-cards {
   margin-top: 20px;
 }
